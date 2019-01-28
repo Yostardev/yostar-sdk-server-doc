@@ -65,11 +65,9 @@ uid=12523819&token=27c265995d5e44919ee711cb96b45321&deviceId=6d9e2d00fd11
 ### 1.1.3.响应数据示例
 
 以下为正常返回数据
-
+```
 200 OK
-
 Content-Type: application/json
-
 {
 
     "result": 0,
@@ -77,21 +75,16 @@ Content-Type: application/json
     "accessToken": "ce0b276f3f0c43c6899cc05b2dc835c5",
 
     "birth": "20040817"
-
 }
-
+```
 以下为异常返回数据
-
+```
 200 OK
-
 Content-Type: application/json
-
 {
-
     "result": 1
-
 }
-
+```
 ## 1.2.数据协议
 
 ### 1.2.1.数据格式
