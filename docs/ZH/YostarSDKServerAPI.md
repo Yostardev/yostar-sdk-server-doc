@@ -25,48 +25,44 @@
 | 服务端API接口--使用手册 |
 | --- |
 | |
-| 1. 概述 |
+| |
 | 1.1. 通信协议 |
 | 1.1.1. 概述 |
 | 1.1.2. SDK服务端请求数据示例 |
 | 1.1.3. 响应数据示例 |
 | 1.2. 数据协议 |
-| 1.2.1. 数据格式 |
-| 1.2.1.1. SDK服务端请求 |
-| 1.2.2. 字符编码 |
+| 1.2.1. 字符编码 |
 | 2. 接口列表 |
 | 2.1. 用户验证接口 |
 | 2.2. 充值结果回调接口 |
 
-# 概述
+# 2.概述
 
 本文档是Yostar服务端API的统一接口规范和开发指南。主要提供给Yostar游戏中心的"SDK服务器"和Yostar游戏合作商的"游戏服务端"的交互接口规范协议说明
 
-## 1.1.通信协议
+## 2.1.通信协议
 
-### 1.1.1.概述
+### 2.1.1.概述
 
 本接口采用HTTP 协议作为通信协议，调用方通过构造HTTP 请求（POST/GET 方式）向""SDK服务器"发起接口请求。
 
 本服务为游戏服务器调用SDK服务端请求数据接口，我们提供了接口域名如下：
 
-http://???.api.yostar.com
+[http://](http://azurapi.yostar.co.jp/)[???.api](http://azurapi.yostar.co.jp/)[.yostar.](http://azurapi.yostar.co.jp/)[com](http://azurapi.yostar.co.jp/)
 
 Yostar提供：接口域名，notifySecretKey，userAppKey
 
 CP需要提供 notifyUrl通知地址
 
-### 1.1.2.SDK服务端请求数据示例
+### 2.1.2.SDK服务端请求数据示例
 
-POST http://???.api.yostar.com/user/login
+POST [http://](http://azurapi.yostar.co.jp/)[???.api](http://azurapi.yostar.co.jp/)[.yostar.](http://azurapi.yostar.co.jp/)[com](http://azurapi.yostar.co.jp/)/user/login
 
 uid=12523819&token=27c265995d5e44919ee711cb96b45321&deviceId=6d9e2d00fd11
 
-### 1.1.3.响应数据示例
+### 2.1.3.响应数据示例
 
 以下为正常返回数据
-
-```
 
 200 OK
 
@@ -82,11 +78,7 @@ Content-Type: application/json
 
 }
 
-```
-
 以下为异常返回数据
-
-```
 
 200 OK
 
@@ -98,33 +90,21 @@ Content-Type: application/json
 
 }
 
-```
+## 2.2.数据协议
 
-## 1.2.数据协议
-
-### 1.2.1.数据格式
-
-#### 1.2.1.1.SDK服务端请求
-
--  **请求消息公共字段**
-
-| 参数 | 必填 | 类型 | 描述 |
-| --- | --- | --- | --- |
-| accessToken | N | string | 请求的accessToken（除/user/login必填） |
-
-### 1.2.2.字符编码
+### 2.2.1.字符编码
 
 请求与响应内容须采用UTF-8字符编码。
 
-# 2.接口列表
+# 3.接口列表
 
-## 2.1.用户验证接口
+## 3.1.用户验证接口
 
--  **接口描述：用户验证**
--  **HTTP请求方式：**** GET**
--  **请求地址：** http://???.api.yostar.cm/api/user\_check
+- 接口描述：用户验证
+- HTTP请求方式：GET
+-  **请求地址：** http[://](http://192.168.51.207:9011/dataSync/getSyncsData)[???.api](http://192.168.51.207:9011/dataSync/getSyncsData)[.yostar.c](http://192.168.51.207:9011/dataSync/getSyncsData)[om](http://192.168.51.207:9011/dataSync/getSyncsData)[/](http://192.168.51.207:9011/dataSync/getSyncsData)api/user\_check
 
--  **请求参数**
+- 请求参数
 
 | 参数 | 必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -132,24 +112,22 @@ Content-Type: application/json
 | token | Y | String | 值为用户登录时的参数的accessToken |
 | sign | Y | String | Md5参数签名,签名字符串为："userID=" + uid + "token=" + token + userAppKey |
 
--  **响应数据说明**
+- 响应数据说明
 
 | 参数 | 必需 | 类型 | 描述 |
 | --- | --- | --- | --- |
 | state | Y | Int | 1：成功，99：验证失败 |
 | msg | Y | String | 'SUCCESS'：成功，'INVALID'：失败 |
 
--  **CP**** 方请求参数**
+- CP方请求参数
 
--  **示例**
+- 示例
 
 uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2b1624e991
 
--  **返回结果**
+- 返回结果
 
--  **JSON示例**
-
-```
+- JSON示例
 
 {
 
@@ -159,22 +137,20 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 }
 
-```
+## 3.2.充值结果回调接口
 
-## 2.2.充值结果回调接口
-
--  **接口描述：即充值结果通知地址，由游戏CP提供。游戏接入时，由游戏合作商提供给**** Yostar ****游戏运营人员，录入到接入系统当中**
--  **HTTP请求方式：**** POST**
+- 接口描述：即充值结果通知地址，由游戏CP提供。游戏接入时，由游戏合作商提供给Yostar游戏运营人员，录入到接入系统当中
+- HTTP请求方式：POST
 -  **请求地址：**** appstoreNotifyUrl,googleplayNotifyUrl ****游戏CP提供的请求地址** (可以找Yostar方帮忙录入)
 
--  **请求参数**
+- 请求参数
 
 | 参数 | 必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
 | data | **Y** | json | 请求的数据data信息，json格式，详细请看下面的data信息 |
 | state | **Y** | int | 1：成功，0：失败 |
 
--  **data信息**
+- data信息
 
 | 参数 | 必需 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -186,13 +162,13 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | signType | Y | string | "md5" |
 | sign | Y | string | md5加密后的签名，签名方式为data的其他参数key按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c |
 
--  **响应数据说明（该接口只有响应内容）**
+- 响应数据说明（该接口只有响应内容）
 
 | 响应内容 | 描述 |
 | --- | --- |
 | SUCCESS或者其他 | SUCCESS：表示处理订单成功，Yostar方收到响应SUCCESS后不会再通知给cp方fail或者其他：失败（也可返回其他错误信息，Yostar方收到后都会多次重复通知） |
 
--  **接口备注**
+- 接口备注
 
 在用户支付订单完成后，Yostar方服务器会向商户方服务器发起通知，并异步不断尝试直到获取结果。以下为异步通知接口说明：
 
@@ -204,26 +180,18 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 - 该方式的调试与运行必须在服务器上,即互联网上能访问;
 - CP方不仅要对回调的签名进行验证，还需要对回调的金额进行比对，两方一致方可发货，避免用户造假篡改订单内容
 
--  **Yostar**** 方请求**
+- Yostar方请求
 
--  **示例**
-
-```
+- 示例
 
 POST
 
-http://???.notifyUrl.com/
+[http://](http://www.notifyUrl.com/)[???](http://www.notifyUrl.com/)[.notifyUrl.com](http://www.notifyUrl.com/)/
 
 data={"extension":"ext","orderId":"91787165161483","productId":"product\_id\_01","uid":"147414535","money":300,"signType":"md5","sign":"9234t8y9rnqowry2ibri2r23r2r32"}&state=1
 
-```
+- CP方返回结果
 
--  **CP方返回结果**
-
--  **示例**
-
-```
+- 示例
 
 SUCCESS
-
-```
