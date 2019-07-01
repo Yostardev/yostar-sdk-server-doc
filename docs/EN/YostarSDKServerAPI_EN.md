@@ -120,7 +120,7 @@ Requests and responses must use UTF-8 character encoding.
 -  **HTTP**  **request method:**  **GET**
 - Request address: http[://](http://192.168.51.207:9011/dataSync/getSyncsData)[???.api](http://192.168.51.207:9011/dataSync/getSyncsData)[.yostar.c](http://192.168.51.207:9011/dataSync/getSyncsData)[m](http://192.168.51.207:9011/dataSync/getSyncsData)[/](http://192.168.51.207:9011/dataSync/getSyncsData)api/user\_check
 
--  **Request for D**** ata**
+-  **Request for D ata**
 
 | **Parameter** | **Necessity** | **Type** | **Description** |
 | --- | --- | --- | --- |
@@ -155,9 +155,9 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 ## 2.2.Payment Result Callback API
 
--  **API description:**  **P**** ayment result notification address, provided by developers.** When the SDK is being implemented, the developers need to provide Yostar with this notification address, so it can be added into the system.
+-  **API description:**  **P ayment result notification address, provided by developers.** When the SDK is being implemented, the developers need to provide Yostar with this notification address, so it can be added into the system.
 -  **HTTP**  **request method:**  **POST**
-- Request address: appstoreNotifyUrl,googleplayNotifyUrl, **notification address**** provided by developers** (please ask Yostar to add it into the system)
+- Request address: appstoreNotifyUrl,googleplayNotifyUrl, **notification address provided by developers** (please ask Yostar to add it into the system)
 
 -  **Request for Data**
 
@@ -166,7 +166,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | data | **Y** | json | Request fordata information, json file, more detailed information can be found in Data information below |
 | state | **Y** | int | 1: success; 0: fail |
 
--  **D**** ata **** Information**
+-  **D ata **** Information**
 
 | Parameter | Necessity | Type | Description |
 | --- | --- | --- | --- |
