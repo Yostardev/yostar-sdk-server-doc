@@ -59,7 +59,7 @@ CP需要提供 notifyUrl通知地址
 
 ### 1.1.2.SDK服务端请求数据示例
 
-POST http://???.api.yostar.com/用户/登录
+POST http://???.api.yostar.com/用户/检查
 
 uid=12523819&token=27c265995d5e44919ee711cb96b45321&deviceId=6d9e2d00fd11
 
@@ -103,7 +103,7 @@ Content-Type: application/json
 
 | 参数 | 必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
-| accessToken | N | string | 请求的accessToken（除/user/login必填） |
+| accessToken | N | string | 请求的accessToken |
 
 ### 1.2.2.字符编码
 
