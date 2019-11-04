@@ -59,7 +59,7 @@ CP需要提供 notifyUrl通知地址
 
 ### 1.1.2.SDK服务端请求数据示例
 
-POST http://???.api.yostar.com/user/login
+POST http://???.api.yostar.com/用户/登录
 
 uid=12523819&token=27c265995d5e44919ee711cb96b45321&deviceId=6d9e2d00fd11
 
