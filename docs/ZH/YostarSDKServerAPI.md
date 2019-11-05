@@ -14,11 +14,12 @@
 
 
 
-| 归档日期 | 版本 | 说明 | 作者 | 审批人 |
-| --- | --- | --- | --- | --- |
+| 归档日期版本说明作者审批人 |   |
+| --- | --- |
 | 2017-7-17 | V1.0.0 | 初稿 |   |   |
 | 2018-11-5 | V1.0.1 | 修订 |   |   |
 | 2019-1-21 | V1.0.2 | 修订 |   |   |
+| 2019-11-5 | V1.0.3 | 修订 |   |   |
 
 目录
 
@@ -47,11 +48,11 @@
 
 ### 1.1.1.概述
 
-本接口采用HTTP 协议作为通信协议，调用方通过构造HTTP 请求（POST/GET 方式）向""SDK服务器"发起接口请求。
+本接口采用HTTPS 协议作为通信协议，调用方通过构造HTTPS 请求（POST/GET 方式）向""SDK服务器"发起接口请求。
 
 本服务为游戏服务器调用SDK服务端请求数据接口，我们提供了接口域名如下：
 
-http://???.api.yostar.com
+https://???.api.yostar.com
 
 Yostar提供：接口域名，notifySecretKey，userAppKey
 
@@ -59,7 +60,7 @@ CP需要提供 notifyUrl通知地址
 
 ### 1.1.2.SDK服务端请求数据示例
 
-POST http://???.api.yostar.com/用户/检查
+POST https://???.api.yostar.com/用户/检查
 
 uid=12523819&token=27c265995d5e44919ee711cb96b45321&deviceId=6d9e2d00fd11
 
@@ -114,8 +115,8 @@ Content-Type: application/json
 ## 1.3.用户验证接口
 
 -  **接口描述：用户验证**
--  **HTTP请求方式： GET**
--  **请求地址：** http://???.api.yostar.cm/api/user\_check
+-  **HTTP S ****请求方式：**** GET**
+-  **请求地址：** https://???.api.yostar.cm/api/user\_check
 
 -  **请求参数**
 
@@ -123,7 +124,7 @@ Content-Type: application/json
 | --- | --- | --- | --- |
 | uid | Y | String | 用户uid |
 | token | Y | String | 值为用户登录时的参数的accessToken |
-| sign | Y | String | Md5参数签名,签名字符串为："userID=" + uid + "token=" + token + userAppKey |
+| sign | Y | String | MD5参数签名,签名字符串为："userID=" + uid + "token=" + token + userAppKey |
 
 -  **响应数据说明**
 
@@ -153,7 +154,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 ## 1.4.充值结果回调接口
 
 -  **接口描述：即充值结果通知地址，由游戏CP提供。游戏接入时，由游戏合作商提供给 Yostar ****游戏运营人员，录入到接入系统当中**
--  **HTTP请求方式： POST**
+-  **HTTP S ****请求方式：**** POST**
 -  **请求地址： appstoreNotifyUrl,googleplayNotifyUrl ****游戏CP提供的请求地址** (可以找Yostar方帮忙录入)
 
 -  **请求参数**
@@ -167,12 +168,12 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 | 参数 | 必需 | 类型 | 描述 |
 | --- | --- | --- | --- |
-| orderId | Y | string | 订单ID |
-| productId | Y | string | Yostar方订单号 |
+| orderId | Y | string | Yostar方订单ID |
+| productId | Y | string | 商店配置的商品ID |
 | uid | Y | string | 用户ID |
-| money | Y | int | 金额 |
-| extension | Y | string | 其他 |
-| signType | Y | string | "md5" |
+| money | Y | int/float | 金额 |
+| extension | Y | string | 其他，不检查唯一 |
+| signType | Y | string | 字符串"md5" |
 | sign | Y | string | md5加密后的签名，签名方式为data的其他参数key按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c |
 
 -  **响应数据说明（该接口只有响应内容）**
@@ -201,7 +202,7 @@ POST
 
 http://???.notifyUrl.com/
 
-data={"extension":"ext","orderId":"91787165161483","productId":"product\_id\_01","uid":"147414535","money":300,"signType":"md5","sign":"9234t8y9rnqowry2ibri2r23r2r32"}&state=1
+data={"extension":"ext\_id\_11101","orderId":"91787165161483","productId":"product\_id\_01","uid":"147414535","money":300,"signType":"md5","sign":"9234t8y9rnqowry2ibri2r23r2r32"}&state=1
 
 -  **CP 方 ****返回结果**
 
