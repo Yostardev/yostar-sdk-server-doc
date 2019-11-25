@@ -14,6 +14,7 @@
 | 2018-11-5 | V1.0.1 | 修订 |   |   |
 | 2019-1-21 | V1.0.2 | 修订 |   |   |
 | 2019-11-5 | V1.0.3 | 修订 |   |   |
+| 2019-11-25 | V1.0.4 | 修订 |   |   |
 
 
 
@@ -125,6 +126,7 @@ Content-Type: application/json
 | uid | Y | String | 用户uid |
 | token | Y | String | 值为用户登录时的参数的accessToken |
 | sign | Y | String | MD5参数签名,签名字符串为："userID=" + uid + "token=" + token + userAppKey |
+| returnBirth | N | String | 验证成功后，是否返回birth生日（1：是，其他：否） |
 
 -  **响应数据说明**
 
@@ -132,12 +134,13 @@ Content-Type: application/json
 | --- | --- | --- | --- |
 | state | Y | Int | 1：成功，99：验证失败 |
 | msg | Y | String | 'SUCCESS'：成功，'INVALID'：失败 |
+| birth | N | String | 生日，格式YYYYMMDD,若没设置过，返回字符串"" |
 
 -  **CP 方请求参数**
 
 -  **示例**
 
-uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2b1624e991
+uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2b1624e991&returnBirth=1
 
 -  **返回结果**
 
@@ -147,7 +150,9 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
     "state": 1,
 
-    "msg": "SUCCESS"
+    "msg": "SUCCESS",
+
+    "birth": "19630405"
 
 }
 
