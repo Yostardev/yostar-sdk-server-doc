@@ -15,6 +15,7 @@
 | 2019-1-21 | V1.0.2 | 修订 |   |   |
 | 2019-11-5 | V1.0.3 | 修订 |   |   |
 | 2019-11-25 | V1.0.4 | 修订 |   |   |
+| 2020-1-2 | V1.0.5 | 修订 |   |   |
 
 
 
@@ -176,7 +177,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | orderId | Y | string | Yostar方订单ID |
 | productId | Y | string | 商店配置的商品ID |
 | uid | Y | string | 用户ID |
-| money | Y | int/float | 金额 |
+| money | Y | int/float | 金额\*100 |
 | extension | Y | string | 其他，不检查唯一 |
 | signType | Y | string | 字符串"md5" |
 | sign | Y | string | md5加密后的签名，签名方式为data的其他参数key（去除signType）按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c |
