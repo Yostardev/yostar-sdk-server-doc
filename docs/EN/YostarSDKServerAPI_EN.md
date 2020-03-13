@@ -200,4 +200,9 @@ data={"extension":"ext\_id\_101","orderId":"91787165161483","productId":"product
 SUCCESS
 
 # 3.Server login recharge sequence diagram
- 
+
+![Third-party login timing diagram](./diagram3.svg)
+
+![SDK recharge timing diagram](./diagram4.svg)
+
+
