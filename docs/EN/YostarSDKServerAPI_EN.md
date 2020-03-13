@@ -1,15 +1,5 @@
 ![](data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAAowAAAAECAYAAAAET25KAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABUUlEQVRoQ+1YSxKCMAwt3sBLuPMMsHLvSV3rCs/gzkPoEZA6hukwwKQZ8immG6CTJi+v+Q1VfX114bfa0z40tzd8qjyr3ioAgvd0TwUUo9Et+8ZI29+pjnECa0jYlVnAxCJGhgqLUzcGk7Z9DEaXscsA5ChXflrxnDNPMLoxMlSuuHTn6M2RpfpJPVcNA+PzHtrHOTTHC1WX+LmqHy27kLZScQgogynOUjCjHHMhdgYgXuIzrhLinZ0UN+AMGGTASo56jzEYHKVDOtRfD3aW/ICEW8KUyqTNE/YxOqR9TnFOYebEo82Htn1ObiV0+4AowbLbcAZoDEzVN+2at9Waoc0rLUL0T0Xe1pqPdlr/56YuHxPocwMX7GN0SF7hUpBLYJWwscSntn3Ju3ZbzoBlBsa1qOQGbAV7rG9WsFiOvTWwba2X5MRNjuyY67kfVpQ7+QBTvFHS8S9TwQAAAABJRU5ErkJggg==)
 
-# Yostar Server API-- User Guide
-
-
-
-
-
-
-
-
-
 | Date | Version | Description | Written/Edited by | Approved By |
 | --- | --- | --- | --- | --- |
 | 2017-7-17 | V1.0.0 | First Edition |   |   |
@@ -33,15 +23,15 @@ Catalog
 | 2. |
 | 2.1. |
 | 2.2. |
+| 3. Server login recharge sequence diagram |
 
-1.
 # 1.Prologue
 
 This document shall be used as a guidelines for Yostar server API specification, which offers the developers a better understanding of the API protocols between the "SDK server" and the "Game server".
 
-## 0.1.Communication Protocols
+## 1.1.Communication Protocols
 
-### 0.1.1.Introduction
+### 1.1.1.Introduction
 
 This API uses HTTP(S) as its communication protocol. The caller can initiate an API request to the "SDK server" by sending a HTTP(S) request (POST/GET method).
 
@@ -53,13 +43,13 @@ We provide: API domain, notifySecretKey，userAppKey
 
 We need: notifyUrl, which serves as a notification address
 
-### 0.1.2.SDK Server Data Acquisition Example
+### 1.1.2.SDK Server Data Acquisition Example
 
 POST [http://](http://azurapi.yostar.co.jp/)[???.api](http://azurapi.yostar.co.jp/)[.yostar.](http://azurapi.yostar.co.jp/)[com](http://azurapi.yostar.co.jp/)/user/login
 
 uid=12523819&token=27c265995d5e44919ee711cb96b45321&deviceId=6d9e2d00fd11
 
-### 0.1.3.Data Response Examples
+### 1.1.3.Data Response Examples
 
 Normal Return Data
 
@@ -89,17 +79,17 @@ Content-Type: application/json
 
 }
 
-## 0.2.Data Protocols
+## 1.2.Data Protocols
 
-### 0.2.1.Character Encoding
+### 1.2.1.Character Encoding
 
 Requests and responses must use UTF-8 character encoding.
 
 
 
-# 1.API List
+# 2.API List
 
-## 1.1.User Verification API
+## 2.1.User Verification API
 
 - API description: User verification
 - HTTP request method: GET
@@ -142,7 +132,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 }
 
-## 1.2.Payment Result Callback API
+## 2.2.Payment Result Callback API
 
 - API description: Payment result notification address, provided by developers. When the SDK is being implemented, the developers need to provide Yostar with this notification address, so it can be added into the system.
 - HTTP request method: POST
@@ -208,4 +198,6 @@ data={"extension":"ext\_id\_101","orderId":"91787165161483","productId":"product
 - Example
 
 SUCCESS
+
+# 3.Server login recharge sequence diagram
  

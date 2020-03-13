@@ -1,13 +1,5 @@
 ![](data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAAowAAAAECAYAAAAET25KAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABUUlEQVRoQ+1YSxKCMAwt3sBLuPMMsHLvSV3rCs/gzkPoEZA6hukwwKQZ8immG6CTJi+v+Q1VfX114bfa0z40tzd8qjyr3ioAgvd0TwUUo9Et+8ZI29+pjnECa0jYlVnAxCJGhgqLUzcGk7Z9DEaXscsA5ChXflrxnDNPMLoxMlSuuHTn6M2RpfpJPVcNA+PzHtrHOTTHC1WX+LmqHy27kLZScQgogynOUjCjHHMhdgYgXuIzrhLinZ0UN+AMGGTASo56jzEYHKVDOtRfD3aW/ICEW8KUyqTNE/YxOqR9TnFOYebEo82Htn1ObiV0+4AowbLbcAZoDEzVN+2at9Waoc0rLUL0T0Xe1pqPdlr/56YuHxPocwMX7GN0SF7hUpBLYJWwscSntn3Ju3ZbzoBlBsa1qOQGbAV7rG9WsFiOvTWwba2X5MRNjuyY67kfVpQ7+QBTvFHS8S9TwQAAAABJRU5ErkJggg==)
 
-# Yostar服务端API接口--使用手册
-
-
-
-
-
-
-
 | 归档日期 | 版本 | 说明 | 作者 | 审批人 |
 | --- | --- | --- | --- | --- |
 | 2017-7-17 | V1.0.0 | 初稿 |   |   |
@@ -26,9 +18,8 @@
 
 目录
 
-| 服务端API接口--使用手册 |
-| --- |
 | |
+| --- |
 | 1. 概述 |
 | 1.1. 通信协议 |
 | 1.1.1. 概述 |
@@ -113,9 +104,9 @@ Content-Type: application/json
 
 请求与响应内容须采用UTF-8字符编码。
 
-# 接口列表
+# 2.接口列表
 
-## 1.3.用户验证接口
+## 2.1.用户验证接口
 
 -  **接口描述：用户验证**
 -  **HTTP S ****请求方式：**** GET**
@@ -158,7 +149,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 }
 
-## 1.4.充值结果回调接口
+## 2.2.充值结果回调接口
 
 -  **接口描述：即充值结果通知地址，由游戏CP提供。游戏接入时，由游戏合作商提供给 Yostar ****游戏运营人员，录入到接入系统当中**
 -  **HTTP S ****请求方式：**** POST**
@@ -223,7 +214,7 @@ data={"extension":"ext\_id\_11101","orderId":"91787165161483","productId":"produ
 
 SUCCESS
 
-服务器登录充值时序图
+# 3.服务器登录充值时序图
 
 ![第三方登录时序图](./diagram1.svg)
 
