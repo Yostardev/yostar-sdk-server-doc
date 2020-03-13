@@ -182,7 +182,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 - Data in Response
 
-| 响应内容 | Description |
+| Response | Description |
 | --- | --- |
 | SUCCESS or others | SUCCESS: the order is completed, Yostar will not notify the developers if they receive this response;fail or others: fail (Other error messages can also be returned, Yostar will repeatedly notify the developers) |
 
