@@ -16,24 +16,6 @@
 
 
 
-目录
-
-| |
-| --- |
-| 1. 概述 |
-| 1.1. 通信协议 |
-| 1.1.1. 概述 |
-| 1.1.2. SDK服务端请求数据示例 |
-| 1.1.3. 响应数据示例 |
-| 1.2. 数据协议 |
-| 1.2.1. 数据格式 |
-| 1.2.1.1. SDK服务端请求 |
-| 1.2.2. 字符编码 |
-| |
-| 2.1. 用户验证接口 |
-| 2.2. 充值结果回调接口 |
-| |
-
 # 1.概述
 
 本文档是Yostar服务端API的统一接口规范和开发指南。主要提供给Yostar游戏中心的"SDK服务器"和Yostar游戏合作商的"游戏服务端"的交互接口规范协议说明
@@ -94,7 +76,7 @@ Content-Type: application/json
 
 #### 1.2.1.1.SDK服务端请求
 
-- 请求消息公共字段
+-  **请求消息公共字段**
 
 | 参数 | 必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -108,11 +90,11 @@ Content-Type: application/json
 
 ## 2.1.用户验证接口
 
-- 接口描述：用户验证
-- 请求方式：GET
+-  **接口描述：** 用户验证
+-  **请求方式：** GET
 -  **请求地址：** https://???.api.yostar.cm/api/user\_check
 
-- 请求参数
+-  **请求参数**
 
 | 参数 | 必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -121,7 +103,7 @@ Content-Type: application/json
 | sign | Y | String | MD5参数签名,签名字符串为："userID=" + uid + "token=" + token + userAppKey |
 | returnBirth | N | String | 验证成功后，是否返回birth生日（1：是，其他：否） |
 
-- 响应数据说明
+-  **响应数据说明**
 
 | 参数 | 必需 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -129,15 +111,15 @@ Content-Type: application/json
 | msg | Y | String | 'SUCCESS'：成功，'INVALID'：失败 |
 | birth | N | String | 生日，格式YYYYMMDD,若没设置过，返回字符串"" |
 
-- CP方请求参数
+-  **CP 方请求参数**
 
-- 示例
+-  **示例**
 
 uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2b1624e991&returnBirth=1
 
-- 返回结果
+-  **返回结果**
 
-- JSON示例
+-  **JSON示例**
 
 {
 
@@ -151,24 +133,24 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 ## 2.2.充值结果回调接口
 
-- 接口描述：即充值结果通知地址，由游戏CP提供。游戏接入时，由游戏合作商提供给Yostar游戏运营人员，录入到接入系统当中
-- 请求方式：POST
+-  **接口描述：** 即充值结果通知地址，由游戏CP提供。游戏接入时，由游戏合作商提供给Yostar游戏运营人员，录入到接入系统当中
+-  **请求方式：** POST
 -  **请求地址：** appstoreNotifyUrl,googleplayNotifyUrl游戏CP提供的请求地址 (可以找Yostar方帮忙录入)
 
-- 请求Header
+-  **请求 Header**
 
 | 参数 | 必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
 | airiadmin | **N** | string | 请求的数据是否手动补单（0或不存在:正常；1：后台手动补单） |
 
-- 请求参数
+-  **请求参数**
 
 | 参数 | 必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
 | data | **Y** | json | 请求的数据data信息，json格式，详细请看下面的data信息 |
 | state | **Y** | int | 1：成功，0：失败 |
 
-- data信息
+-  **data信息**
 
 | 参数 | 必需 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -180,13 +162,13 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | signType | Y | string | 字符串"md5" |
 | sign | Y | string | md5加密后的签名，签名方式为data的其他参数key（去除signType）按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c |
 
-- 响应数据说明（该接口只有响应内容）
+-  **响应数据说明（该接口只有响应内容）**
 
 | 响应内容 | 描述 |
 | --- | --- |
 | SUCCESS或者其他 | SUCCESS：表示处理订单成功，Yostar方收到响应SUCCESS后不会再通知给cp方fail或者其他：失败（也可返回其他错误信息，Yostar方收到后都会多次重复通知） |
 
-- 接口备注
+-  **接口备注**
 
 在用户支付订单完成后，Yostar方服务器会向商户方服务器发起通知，并异步不断尝试直到获取结果。以下为异步通知接口说明：
 
@@ -200,7 +182,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 - Yostar方请求
 
-- 示例
+-  **示例**
 
 POST
 
@@ -210,11 +192,13 @@ data={"extension":"ext\_id\_11101","orderId":"91787165161483","productId":"produ
 
 - CP方返回结果
 
-- 示例
+-  **示例**
 
 SUCCESS
 
 # 3.服务器登录充值时序图
+
+**        　　　　　　**
 
 ![第三方登录时序图](./diagram1.svg)
 

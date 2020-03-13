@@ -10,21 +10,6 @@
 | 2020-1-2 | V1.0.5 | Edit |   |   |
 | 2020-2-6 | V1.0.6 | Add Header |   |   |
 
-Catalog
-
-| 1. |
-| --- |
-| 1.1. |
-| 1.1.1. |
-| 1.1.2. |
-| 1.1.3. |
-| 1.2. |
-| 1.2.1. |
-| 2. |
-| 2.1. |
-| 2.2. |
-| 3. Server login recharge sequence diagram |
-
 # 1.Prologue
 
 This document shall be used as a guidelines for Yostar server API specification, which offers the developers a better understanding of the API protocols between the "SDK server" and the "Game server".
