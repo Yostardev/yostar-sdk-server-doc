@@ -22,26 +22,19 @@
 
 Catalog
 
- Yostar Server API -- User Guide        1
+| 1. |
+| --- |
+| 1.1. |
+| 1.1.1. |
+| 1.1.2. |
+| 1.1.3. |
+| 1.2. |
+| 1.2.1. |
+| 2. |
+| 2.1. |
+| 2.2. |
 
-1.1.  Communication Protocols        3
-
-1.1.1.  Introduction        3
-
-1.1.2.  SDK Server Data Acquisition Example        3
-
-1.1.3.  Data Response Examples        3
-
-1.2.  Data Protocols        3
-
-1.2.1.  Character Encoding        3
-
-2.  API List        4
-
-2.1.  User Verification API        4
-
-2.2.  Payment Result Callback API        4
-
+1.
 # 1.Prologue
 
 This document shall be used as a guidelines for Yostar server API specification, which offers the developers a better understanding of the API protocols between the "SDK server" and the "Game server".
