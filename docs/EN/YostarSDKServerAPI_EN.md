@@ -158,7 +158,7 @@ After a user payment order is completed, SDK server will try to notify the game 
 
 - Must ensure the server asynchronous notification page (notify\_url) has no characters, such as spaces, HTML tags, and abnormal messages from development system;
 - When the SDK server sends notification message through POST method, only one parameter named "data" will be sent. Inside "data" is a json string, after json decodingthere is an order array, thus the methods of acquiring data in the page are: Form("data") and $\_POST['data'];
-- If the characters in Developer's response is not the exact 7 characters as "SUCCESS", SDK server will try to send a notification repeatedly, under normal circumstances, 12 notifications will be sent per 28 hours.
+- If the characters in Developer's response is not the exact 7 characters as "SUCCESS", SDK server will try to send a notification repeatedly, under normal circumstances, 12 notifications will be sent in 24 hours. Stop sending notification afterwards.
 - After the program is executed, the page must not be forwarded/redirected to another page. If the page changes, it will be determined as functioning abnormally, and the SDK server will not receive "SUCCESS" and will try to a notification repeatedly.
 - Cookies, sessions, etc. will become useless on this page, which means these kind of data cannot be received;
 - This API can only be tested and operated online;
