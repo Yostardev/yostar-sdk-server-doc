@@ -140,7 +140,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | --- | --- | --- | --- |
 | orderId | Y | string | Yostar Order ID |
 | productId | Y | string | Item ID configured in the Google/Apple store |
-| uid | Y | string | User ID |
+| uid | Y | Int/string | User ID, Convert to string when exceeding JSON to indicate int precision |
 | money | Y | int/float | Value Equals Payment amount \* 100 |
 | extension | Y | string | Others |
 | signType | Y | string | String"md5" |
@@ -157,7 +157,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 After a user payment order is completed, SDK server will try to notify the game server asynchronously until a result is obtained.The details of Asynchronous Notification API are listed below:
 
 - Must ensure the server asynchronous notification page (notify\_url) has no characters, such as spaces, HTML tags, and abnormal messages from development system;
-- When the SDK server sends notification message through POST method, only one parameter named "data" will be sent. Inside "data" is a json string, after json decodingthere is an order array, thus the methods of acquiring data in the page are: Form("data") and $\_POST['data'];
+- When the SDK server sends notification message through POST method, only one parameter named "data" will be sent. Inside "data" is a json string, after json decoding there is an order array, thus the methods of acquiring data in the page are: Form("data") and $\_POST['data'];
 - If the characters in Developer's response is not the exact 7 characters as "SUCCESS", SDK server will try to send a notification repeatedly, under normal circumstances, 12 notifications will be sent in 24 hours. Stop sending notification afterwards.
 - After the program is executed, the page must not be forwarded/redirected to another page. If the page changes, it will be determined as functioning abnormally, and the SDK server will not receive "SUCCESS" and will try to a notification repeatedly.
 - Cookies, sessions, etc. will become useless on this page, which means these kind of data cannot be received;
