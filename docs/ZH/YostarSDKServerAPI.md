@@ -156,7 +156,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | --- | --- | --- | --- |
 | orderId | Y | string | Yostar方订单ID |
 | productId | Y | string | 商店配置的商品ID |
-| uid | Y | string | 用户ID |
+| uid | Y | int/string | 用户ID,超过JSON表示int精度时转为string |
 | money | Y | int/float | 金额\*100 |
 | extension | Y | string | 其他，不检查唯一 |
 | signType | Y | string | 字符串"md5" |
