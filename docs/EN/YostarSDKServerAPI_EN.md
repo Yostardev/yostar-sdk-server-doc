@@ -122,7 +122,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 - API description: Payment result notification address, provided by developers. When the SDK is being implemented, the developers need to provide Yostar with this notification address, so it can be added into the system.
 - HTTP request method: POST
-- Request address: appstoreNotifyUrl,googleplayNotifyUrl,notifyRefundUrl notification addressprovided by developers (please ask Yostar to add it into the system)
+- Request address: appstoreNotifyUrl,googleplayNotifyUrl, notification addressprovided by developers (please ask Yostar to add it into the system)
 
 - Request Header
 
@@ -135,7 +135,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | Parameter | Necessity | Type | Description |
 | --- | --- | --- | --- |
 | data | Y | json | Request fordata information, json file, more detailed information can be found in Data information below |
-| state | Y | int | 1: success; 0: fail; 2: refund |
+| state | Y | int | 1: success; 0: fail |
 
 - Data Information
 
@@ -144,11 +144,10 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | orderId | Y | string | Yostar Order ID |
 | productId | Y | string | Item ID configured in the Google/Apple store |
 | uid | Y | Int/string | User ID, Convert to string when exceeding JSON to indicate int precision |
-| money | Y | int/float | Value Equals Payment amount \* 100 |
+| money | Y | int/float | Value Equals Payment amount （\* 100） |
 | extension | Y | string | Others |
-| platform | N | string | Refund channel; exists when state=2 |
 | signType | Y | string | String"md5" |
-| sign | Y | string | I(1: success; 0: fail):MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c II(state=othervalue): MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&state=[statevalue]&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c |
+| sign | Y | string | MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c  |
 
 - Data in Response
 
@@ -186,7 +185,45 @@ data={"extension":"ext\_id\_101","orderId":"91787165161483","productId":"product
 
 SUCCESS
 
-# 3.Server login recharge sequence diagram
+## 2.3.Payment Refund Result Callback API
+
+- API description: Payment Refund result notification address, provided by developers. When the SDK is being implemented, the developers need to provide Yostar with this notification address, so it can be added into the system.
+- HTTP request method: POST
+- Request address: notifyRefundUrl notification addressprovided by developers
+
+- Request Header
+
+| Parameter | Necessity | Type | Description |
+| --- | --- | --- | --- |
+| airiadmin | N | string | Whether the requested data is manually filled (0 or does not exist: Normal; 1: Manually filled in the Admin Management Background System) |
+
+- Request Parameters for Data
+
+| Parameter | Necessity | Type | Description |
+| --- | --- | --- | --- |
+| data | Y | json | Request fordata information, json file, more detailed information can be found in Data information below |
+| state | Y | int | 2: refund |
+
+- Data Information
+
+| Parameter | Necessity | Type | Description |
+| --- | --- | --- | --- |
+| orderId | Y | string | Yostar Order ID |
+| productId | Y | string | Item ID configured in the Google/Apple store |
+| uid | Y | Int/string | User ID, Convert to string when exceeding JSON to indicate int precision |
+| money | Y | int/float | Value Equals Payment amount （\* 100） |
+| extension | Y | string | Others |
+| platform | Y | string | Refund channel（googleplay，appstore） |
+| signType | Y | string | String"md5" |
+| sign | Y | string | MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&state=[statevalue]&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c |
+
+- Data in Response
+
+| Response | Description |
+| --- | --- |
+| SUCCESS or others | SUCCESS: the order is completed, Yostar will not notify the developers if they receive this response;fail or others: fail (Other error messages can also be returned, Yostar will repeatedly notify the developers) |
+
+# 4.Server login recharge sequence diagram
 
 ![Third-party login timing diagram](./diagram3.svg)
 

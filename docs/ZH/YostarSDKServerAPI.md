@@ -158,11 +158,10 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | orderId | Y | string | Yostar方订单ID |
 | productId | Y | string | 商店配置的商品ID |
 | uid | Y | int/string | 用户ID,超过JSON表示int精度时转为string |
-| money | Y | int/float | 金额\*100 |
+| money | Y | int/float | 金额（\*100） |
 | extension | Y | string | 其他，不检查唯一 |
-| platform | N | string | 退款渠道，当state=2时，值存在 |
 | signType | Y | string | 字符串"md5" |
-| sign | Y | string | 情况一（state= 1：成功，0：失败）：md5加密后的签名，签名方式为data的其他参数key（去除signType）按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c 情况2（state= 其他）：md5加密后的签名，签名方式为data的其他参数key（去除signType）按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&state=[state值]&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c  |
+| sign | Y | string | md5加密后的签名，签名方式为data的其他参数key（去除signType）按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c |
 
 - 响应数据说明（该接口只有响应内容）
 
@@ -199,6 +198,40 @@ data={"extension":"ext\_id\_11101","orderId":"91787165161483","productId":"produ
 -  **示例**
 
 SUCCESS
+
+
+
+## 2.3.退款通知接口
+
+-  **接口描述：** 充值退款通知，由游戏CP提供。游戏接入时，由游戏合作商提供给Yostar游戏运营人员，录入到接入系统当中
+-  **请求方式：** POST
+-  **请求地址：** notifyRefundUrl游戏CP提供的请求地址
+
+- 请求参数
+
+| 参数 | 必填 | 类型 | 描述 |
+| --- | --- | --- | --- |
+| data | Y | json | 请求的数据data信息，json格式，详细请看下面的data信息 |
+| state | Y | int | 2：退款 |
+
+- data **信息**
+
+| 参数 | 必需 | 类型 | 描述 |
+| --- | --- | --- | --- |
+| orderId | Y | string | Yostar方订单ID |
+| productId | Y | string | 商店配置的商品ID |
+| uid | Y | int/string | 用户ID,超过JSON表示int精度时转为string |
+| money | Y | int/float | 金额（\*100） |
+| extension | Y | string | 其他，不检查唯一 |
+| platform | Y | string | 退款渠道,（googleplay，appstore） |
+| signType | Y | string | 字符串"md5" |
+| sign | Y | string | md5加密后的签名，签名方式为data的其他参数key（去除signType）按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&state=[state值]&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c  |
+
+- 响应数据说明（该接口只有响应内容）
+
+| 响应内容 | 描述 |
+| --- | --- |
+| SUCCESS或者其他 | SUCCESS：表示处理订单成功，Yostar方收到响应SUCCESS后不会再通知给cp方fail或者其他：失败（也可返回其他错误信息，Yostar方收到后都会多次重复通知） |
 
 
 
