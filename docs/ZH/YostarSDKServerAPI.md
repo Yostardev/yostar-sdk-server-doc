@@ -33,7 +33,7 @@ https://???.api.yostar.com
 
 Yostar提供：接口域名，notifySecretKey(服务器验证通知)，userAppKey(服务器验证用户accesstoken)
 
-CP需要提供 notifyUrl通知地址
+CP需要提供 notifyUrl通知地址，notifyRefundUrl退款通知地址（相同协议主机端口）
 
 ### 1.1.2.SDK服务端请求数据示例
 
@@ -136,7 +136,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 -  **接口描述：** 即充值结果通知地址，由游戏CP提供。游戏接入时，由游戏合作商提供给Yostar游戏运营人员，录入到接入系统当中
 -  **请求方式：** POST
--  **请求地址：** appstoreNotifyUrl,googleplayNotifyUrl游戏CP提供的请求地址 (可以找Yostar方帮忙录入)
+-  **请求地址：** appstoreNotifyUrl,googleplayNotifyUrl，notifyRefundUrl游戏CP提供的请求地址 (可以找Yostar方帮忙录入)
 
 -  **请求 Header**
 

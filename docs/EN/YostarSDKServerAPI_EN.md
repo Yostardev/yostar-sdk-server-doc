@@ -27,7 +27,7 @@ http://???.api.yostar.com
 
 We provide: API domain, notifySecretKey(Verify Server Notify)，userAppKey(Verify User Accesstoken)
 
-We need: notifyUrl, which serves as a notification address
+We need: notifyUrl which serves as a notification address； notifyRefundUrl which serves as a refund notification address（Same protocol hostname port）
 
 ### 1.1.2.SDK Server Data Acquisition Example
 
@@ -70,6 +70,8 @@ Content-Type: application/json
 ### 1.2.1.Character Encoding
 
 Requests and responses must use UTF-8 character encoding.
+
+
 
 # 2.API List
 
@@ -120,7 +122,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 
 - API description: Payment result notification address, provided by developers. When the SDK is being implemented, the developers need to provide Yostar with this notification address, so it can be added into the system.
 - HTTP request method: POST
-- Request address: appstoreNotifyUrl,googleplayNotifyUrl, notification addressprovided by developers (please ask Yostar to add it into the system)
+- Request address: appstoreNotifyUrl,googleplayNotifyUrl,notifyRefundUrl notification addressprovided by developers (please ask Yostar to add it into the system)
 
 - Request Header
 
