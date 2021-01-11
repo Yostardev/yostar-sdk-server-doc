@@ -9,6 +9,7 @@
 | 2019-11-25 | V1.0.4 | Edit |   |   |
 | 2020-1-2 | V1.0.5 | Edit |   |   |
 | 2020-2-6 | V1.0.6 | Add Header |   |   |
+| 2021-1-11 | V1.0.7 | AddRefundNotify |   |   |
 
 # 1.Prologue
 
@@ -132,7 +133,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | Parameter | Necessity | Type | Description |
 | --- | --- | --- | --- |
 | data | Y | json | Request fordata information, json file, more detailed information can be found in Data information below |
-| state | Y | int | 1: success; 0: fail |
+| state | Y | int | 1: success; 0: fail; 2: refund |
 
 - Data Information
 
@@ -144,7 +145,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | money | Y | int/float | Value Equals Payment amount \* 100 |
 | extension | Y | string | Others |
 | signType | Y | string | String"md5" |
-| sign | Y | string | MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&" and "notifySecretKey" provided by Yostar into the string. Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c |
+| sign | Y | string | I(1: success; 0: fail):MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9cII(state=othervalue): MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&state=[statevalue]&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c |
 
 - Data in Response
 
