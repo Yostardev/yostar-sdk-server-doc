@@ -144,6 +144,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | uid | Y | Int/string | User ID, Convert to string when exceeding JSON to indicate int precision |
 | money | Y | int/float | Value Equals Payment amount \* 100 |
 | extension | Y | string | Others |
+| platform | N | string | Refund channel; exists when state=2 |
 | signType | Y | string | String"md5" |
 | sign | Y | string | I(1: success; 0: fail):MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&e142d7604715610ae1d71a1ca74b8b9c II(state=othervalue): MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&state=[statevalue]&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c |
 
