@@ -215,7 +215,7 @@ SUCCESS
 | extension | Y | string | Others |
 | platform | Y | string | Refund channel（googleplay，appstore） |
 | signType | Y | string | String"md5" |
-| sign | Y | string | MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&state=[statevalue]&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c |
+| sign | Y | string | MD5 Encrypted Signature, signature is spliced alphabetically(exclude signType)with data parameter keys. Field: Sort field names alphabetically with an ascending order during the naming process. Then add "&state=[statevalue]&" and "notifySecretKey" provided by Yostar into the string.Example:extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&platform=googleplay&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c |
 
 - Data in Response
 

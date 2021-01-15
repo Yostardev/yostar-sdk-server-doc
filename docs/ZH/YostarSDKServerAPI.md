@@ -225,7 +225,7 @@ SUCCESS
 | extension | Y | string | 其他，不检查唯一 |
 | platform | Y | string | 退款渠道,（googleplay，appstore） |
 | signType | Y | string | 字符串"md5" |
-| sign | Y | string | md5加密后的签名，签名方式为data的其他参数key（去除signType）按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&state=[state值]&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&productId=product\_sub\_passport01&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c  |
+| sign | Y | string | md5加密后的签名，签名方式为data的其他参数key（去除signType）按字母排序拼接，字段： **拼接时需对字段名排序** ，排序方式是按字段名进行字符串 **升序排列** 。最后再拼接上&state=[state值]&和商务所提供约定的密钥notifySecretKey。示例：extension=ext&money=120&orderId=5002813077261056069&platform=googleplay&productId=product\_sub\_passport01&uid=12523825&state=2&e142d7604715610ae1d71a1ca74b8b9c  |
 
 - 响应数据说明（该接口只有响应内容）
 
