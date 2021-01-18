@@ -149,7 +149,7 @@ uid=12523823&token=fd4a9c3aff4d4752ba91d3744d4a2abd&sign=94017a896bad4ac2b0879d2
 | 参数 | 必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
 | data | Y | json | 请求的数据data信息，json格式，详细请看下面的data信息 |
-| state | Y | int | 1：成功，0：失败，2：退款 |
+| state | Y | int | 1：成功，0：失败 |
 
 - data **信息**
 
