@@ -10,6 +10,7 @@
 | 2020-1-2 | V1.0.5 | Edit |   |   |
 | 2020-2-6 | V1.0.6 | Add Header |   |   |
 | 2021-1-11 | V1.0.7 | AddRefundNotify |   |   |
+| 2021-5-11 | V1.0.8 | Add User Verification Notes |   |   |
 
 # 1.Prologue
 
@@ -97,6 +98,10 @@ Requests and responses must use UTF-8 character encoding.
 | state | Y | Int | 1: success; 99: verification failed |
 | msg | Y | String | 'SUCCESS': success; 'INVALID': fail |
 | birth | N | String | Birthday, format YYYYMMDD, if not set, returns the string "" |
+
+- Notes
+
+        Each time the user requests the previous login access\_token to become invalid, please do not repeat the login request within a short period of time to avoid the last login access\_token invalidation
 
 - Request for Data as Developers
 

@@ -10,6 +10,7 @@
 | 2020-1-2 | V1.0.5 | 修订 |   |   |
 | 2020-2-6 | V1.0.6 | 修订增加Header |   |   |
 | 2021-1-11 | V1.0.7 | 修订增加退款通知 |   |   |
+| 2021-5-11 | V1.0.8 | 增加用户验证备注 |   |   |
 
 
 
@@ -111,6 +112,10 @@ Content-Type: application/json
 | state | Y | Int | 1：成功，99：验证失败 |
 | msg | Y | String | 'SUCCESS'：成功，'INVALID'：失败 |
 | birth | N | String | 生日，格式YYYYMMDD,若没设置过，返回字符串"" |
+
+- 接口备注
+
+每次用户请求前一次登录access\_token失效，短时间范围请不要重复发起登录请求以避免上一次登录的access\_token失效
 
 - CP **方请求参数**
 
@@ -232,8 +237,6 @@ SUCCESS
 | 响应内容 | 描述 |
 | --- | --- |
 | SUCCESS或者其他 | SUCCESS：表示处理订单成功，Yostar方收到响应SUCCESS后不会再通知给cp方fail或者其他：失败（也可返回其他错误信息，Yostar方收到后都会多次重复通知） |
-
-
 
 # 3.服务器登录充值时序图
 
